@@ -1,27 +1,68 @@
 package com.example.miniplannerapp.ui.screens
 
+import android.app.DatePickerDialog
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
+import com.example.miniplannerapp.ui.util.formatDate
+import java.time.LocalDate
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.outlined.DateRange
+import androidx.compose.material.icons.automirrored.outlined.ArrowBack
+import androidx.compose.material3.TopAppBar
+import androidx.compose.material3.IconButton
+import androidx.compose.material3.Icon
 
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun AddTaskScreen(
     onSave: (text: String, date: String?) -> Unit,
     onCancel: () -> Unit
 ) {
     var text by remember { mutableStateOf("") }
-    var date by remember { mutableStateOf("") }
+    var selectedDate by remember { mutableStateOf<LocalDate?>(null) }
 
-    Scaffold { padding ->
+    val context = LocalContext.current
+    val initial = selectedDate ?: LocalDate.now()
+
+    val datePickerDialog = remember(selectedDate) {
+        DatePickerDialog(
+            context,
+            { _, year, month, dayOfMonth ->
+                selectedDate = LocalDate.of(year, month + 1, dayOfMonth)
+            },
+            initial.year,
+            initial.monthValue - 1,
+            initial.dayOfMonth
+        )
+    }
+
+    Scaffold(
+        topBar = {
+            TopAppBar(
+                title = { Text("Add task") },
+                navigationIcon = {
+                    IconButton(onClick = onCancel) {
+                        Icon(
+                            imageVector = Icons.AutoMirrored.Outlined.ArrowBack,
+                            contentDescription = "Back"
+                        )
+                    }
+                }
+            )
+        }
+    ) { padding ->
         Column(
             modifier = Modifier
                 .padding(padding)
                 .padding(16.dp),
             verticalArrangement = Arrangement.spacedBy(12.dp)
         ) {
-            Text("Add task", style = MaterialTheme.typography.headlineSmall)
 
             OutlinedTextField(
                 value = text,
@@ -30,16 +71,30 @@ fun AddTaskScreen(
                 modifier = Modifier.fillMaxWidth()
             )
 
+            // Date (optional): readOnly + opens DatePickerDialog
             OutlinedTextField(
-                value = date,
-                onValueChange = { date = it },
+                value = formatDate(selectedDate),
+                onValueChange = {},
                 label = { Text("Date (optional)") },
-                modifier = Modifier.fillMaxWidth()
+                readOnly = true,
+                singleLine = true,
+                modifier = Modifier.fillMaxWidth(),
+                trailingIcon = {
+                    IconButton(onClick = { datePickerDialog.show() }) {
+                        Icon(
+                            imageVector = Icons.Outlined.DateRange,
+                            contentDescription = "Pick date"
+                        )
+                    }
+                }
             )
 
             Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
                 Button(
-                    onClick = { onSave(text, date) },
+                    onClick = {
+                        val dateString = formatDate(selectedDate).ifBlank { null }
+                        onSave(text, dateString)
+                    },
                     enabled = text.trim().isNotEmpty()
                 ) { Text("Save") }
 
