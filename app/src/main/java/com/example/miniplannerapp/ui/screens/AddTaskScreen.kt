@@ -1,8 +1,6 @@
 package com.example.miniplannerapp.ui.screens
 
 import android.app.DatePickerDialog
-import androidx.compose.foundation.clickable
-import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
@@ -17,6 +15,7 @@ import androidx.compose.material.icons.automirrored.outlined.ArrowBack
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Icon
+import com.example.miniplannerapp.data.AppConstants.PADDING
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -60,7 +59,7 @@ fun AddTaskScreen(
         Column(
             modifier = Modifier
                 .padding(padding)
-                .padding(16.dp),
+                .padding(PADDING.dp),
             verticalArrangement = Arrangement.spacedBy(12.dp)
         ) {
 

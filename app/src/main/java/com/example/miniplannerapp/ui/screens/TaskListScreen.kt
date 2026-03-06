@@ -17,6 +17,7 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import com.example.miniplannerapp.data.AppConstants.PADDING
 import com.example.miniplannerapp.data.Task
 import com.example.miniplannerapp.ui.components.TaskItem
 
@@ -40,8 +41,8 @@ fun TaskListScreen(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(padding)
-                .padding(16.dp),
-            contentPadding = PaddingValues(bottom = 16.dp),
+                .padding(PADDING.dp),
+            contentPadding = PaddingValues(bottom = PADDING.dp),
             verticalArrangement = Arrangement.spacedBy(12.dp)
         ) {
             items(items = tasks, key = { it.id }) { task ->

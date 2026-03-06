@@ -9,7 +9,9 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
+import com.example.miniplannerapp.data.AppConstants.PADDING
 import com.example.miniplannerapp.data.Task
+
 
 @Composable
 fun TaskItem(
@@ -23,7 +25,7 @@ fun TaskItem(
         shape = MaterialTheme.shapes.large
     ) {
         Row(
-            modifier = Modifier.padding(16.dp),
+            modifier = Modifier.padding(PADDING.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
             Checkbox(
