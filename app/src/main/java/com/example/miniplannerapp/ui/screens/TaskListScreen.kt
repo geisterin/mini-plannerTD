@@ -20,6 +20,7 @@ import androidx.compose.ui.unit.dp
 import com.example.miniplannerapp.data.Task
 import com.example.miniplannerapp.ui.components.TaskItem
 
+import androidx.compose.ui.graphics.Color
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun TaskListScreen(
