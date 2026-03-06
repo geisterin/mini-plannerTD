@@ -31,5 +31,7 @@ Lihtne Android-rakendus ülesannete (ToDo) haldamiseks.
 - Arendus toimub feature-harudes ja liitmine main harusse käib Pull Request’i kaudu
 - Igal PR-il on kirjeldus ja vähemalt 1 kommentaar teiselt tiimiliikmelt 
 
-
-
+## Rakenduse Ekraanipildid
+![Task list](img/001.png "Task list")  
+![Add task](img/002.png "Add task")  
+![Choose a date](img/003.png "Choose a date")  
