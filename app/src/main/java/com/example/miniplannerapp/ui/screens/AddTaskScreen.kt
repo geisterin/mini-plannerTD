@@ -1,8 +1,6 @@
 package com.example.miniplannerapp.ui.screens
 
 import android.app.DatePickerDialog
-import androidx.compose.foundation.clickable
-import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
@@ -17,6 +15,9 @@ import androidx.compose.material.icons.automirrored.outlined.ArrowBack
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Icon
+import com.example.miniplannerapp.data.AppConstants.COLUMN_VERTICAL_ARRANGEMENT
+import com.example.miniplannerapp.data.AppConstants.PADDING
+import com.example.miniplannerapp.data.AppConstants.ROW_HORIZONTAL_ARRANGEMENT
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -60,8 +61,8 @@ fun AddTaskScreen(
         Column(
             modifier = Modifier
                 .padding(padding)
-                .padding(16.dp),
-            verticalArrangement = Arrangement.spacedBy(12.dp)
+                .padding(PADDING.dp),
+            verticalArrangement = Arrangement.spacedBy(COLUMN_VERTICAL_ARRANGEMENT.dp)
         ) {
 
             OutlinedTextField(
@@ -89,7 +90,7 @@ fun AddTaskScreen(
                 }
             )
 
-            Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+            Row(horizontalArrangement = Arrangement.spacedBy(ROW_HORIZONTAL_ARRANGEMENT.dp)) {
                 Button(
                     onClick = {
                         val dateString = formatDate(selectedDate).ifBlank { null }
