@@ -17,6 +17,7 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.Icon
 import com.example.miniplannerapp.data.AppConstants.COLUMN_VERTICAL_ARRANGEMENT
 import com.example.miniplannerapp.data.AppConstants.PADDING
+import com.example.miniplannerapp.data.AppConstants.ROW_HORIZONTAL_ARRANGEMENT
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -89,7 +90,7 @@ fun AddTaskScreen(
                 }
             )
 
-            Row(horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+            Row(horizontalArrangement = Arrangement.spacedBy(ROW_HORIZONTAL_ARRANGEMENT.dp)) {
                 Button(
                     onClick = {
                         val dateString = formatDate(selectedDate).ifBlank { null }
