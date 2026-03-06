@@ -15,6 +15,7 @@ import androidx.compose.material.icons.automirrored.outlined.ArrowBack
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Icon
+import com.example.miniplannerapp.data.AppConstants.COLUMN_VERTICAL_ARRANGEMENT
 import com.example.miniplannerapp.data.AppConstants.PADDING
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -60,7 +61,7 @@ fun AddTaskScreen(
             modifier = Modifier
                 .padding(padding)
                 .padding(PADDING.dp),
-            verticalArrangement = Arrangement.spacedBy(12.dp)
+            verticalArrangement = Arrangement.spacedBy(COLUMN_VERTICAL_ARRANGEMENT.dp)
         ) {
 
             OutlinedTextField(
