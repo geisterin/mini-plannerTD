@@ -6,8 +6,7 @@ Lihtne Android-rakendus ülesannete (ToDo) haldamiseks.
 - Ülesannete lisamine (tekst + valikuline kuupäev)
 - Ülesannete nimekirja kuvamine
 - Ülesande märkimine tehtuks (checkbox/switch)
-- Ülesande kustutamine  
-TODO: küsi üle
+- Ülesande kustutamine
 
 ## Tehnoloogia
 - Android Studio + Kotlin
