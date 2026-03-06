@@ -13,7 +13,7 @@ Lihtne Android-rakendus ülesannete (ToDo) haldamiseks.
 - Jetpack Compose (UI)
 - Navigation Compose (ekraanide vahel liikumine)
 - LazyColumn (nimekirja kuvamine)
-- SharedPreferences (andmete salvestus, JSON/Gson) 
+- SharedPreferences (Gson) 
 
 ## Käivitamine
 1. Klooni repositoorium
